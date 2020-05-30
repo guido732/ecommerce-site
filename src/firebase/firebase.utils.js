@@ -3,14 +3,13 @@ import "firebase/firestore";
 import "firebase/auth";
 
 const config = {
-	apiKey: "AIzaSyB4gDvE6SAA5SDSK25KTEuBle5Ek5lgqh4",
-	authDomain: "react-ecommerce-6a2e5.firebaseapp.com",
-	databaseURL: "https://react-ecommerce-6a2e5.firebaseio.com",
-	projectId: "react-ecommerce-6a2e5",
-	storageBucket: "react-ecommerce-6a2e5.appspot.com",
-	messagingSenderId: "446623133293",
-	appId: "1:446623133293:web:2f70dcde759f775a8d5964",
-	measurementId: "G-JT6HSD64WF"
+	apiKey: "AIzaSyCV9a4mDcVjItvpEnmIgFm6qMP87-2amjs",
+	authDomain: "react-ecommerce-3b8b6.firebaseapp.com",
+	databaseURL: "https://react-ecommerce-3b8b6.firebaseio.com",
+	projectId: "react-ecommerce-3b8b6",
+	storageBucket: "react-ecommerce-3b8b6.appspot.com",
+	messagingSenderId: "939227610478",
+	appId: "1:939227610478:web:4ecad4f43613a5e959d57f",
 };
 
 export const createUserProfileDocument = async (userAuth, additionalData) => {
@@ -26,7 +25,7 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
 				displayName,
 				email,
 				createdAt,
-				...additionalData
+				...additionalData,
 			});
 		} catch (e) {
 			console.log("error creating user", e.message);
