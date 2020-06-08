@@ -16,6 +16,7 @@ This project is the result of the `Complete React Developer in 2019 (w Redux, Ho
 - [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli) + Live Site Deploy
 - [React Stripe Js](https://github.com/stripe/react-stripe-js)
 - [Stripe Js](https://www.npmjs.com/package/@stripe/stripe-js)
+- [Styled Components](https://styled-components.com/)
 
 ---
 
@@ -37,3 +38,4 @@ Proyecto resultado del curso de React `Complete React Developer in 2019 (w Redux
 - [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli) + Live Site Deploy
 - [React Stripe Js](https://github.com/stripe/react-stripe-js)
 - [Stripe Js](https://www.npmjs.com/package/@stripe/stripe-js)
+- [Styled Components](https://styled-components.com/)
