@@ -1,7 +1,7 @@
 import React from "react";
 
 import FormInput from "../form-input/form-input.component";
-import CustomButton from "../CustomButton/custom-button.component";
+import CustomButton from "../custom-button/custom-button.component";
 import { auth, createUserProfileDocument } from "../../firebase/firebase.utils";
 
 import "./sign-up.styles.scss";
@@ -14,11 +14,11 @@ class SignUp extends React.Component {
 			displayName: "",
 			email: "",
 			password: "",
-			confirmPassword: ""
+			confirmPassword: "",
 		};
 	}
 
-	handleSubmit = async event => {
+	handleSubmit = async (event) => {
 		event.preventDefault();
 		const { displayName, email, password, confirmPassword } = this.state;
 		if (password !== confirmPassword) {
@@ -32,7 +32,7 @@ class SignUp extends React.Component {
 					displayName: "",
 					email: "",
 					password: "",
-					confirmPassword: ""
+					confirmPassword: "",
 				});
 			} catch (error) {
 				console.error(error);
@@ -40,7 +40,7 @@ class SignUp extends React.Component {
 		}
 	};
 
-	handleChange = event => {
+	handleChange = (event) => {
 		const { name, value } = event.target;
 		this.setState({ [name]: value });
 	};

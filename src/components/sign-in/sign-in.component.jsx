@@ -1,7 +1,7 @@
 import React from "react";
 // Custom Components
 import FormInput from "../form-input/form-input.component";
-import CustomButton from "../CustomButton/custom-button.component";
+import CustomButton from "../custom-button/custom-button.component";
 // Firebase
 import { auth, signInWithGoogle } from "../../firebase/firebase.utils";
 // Styles
@@ -13,11 +13,11 @@ class SignIn extends React.Component {
 
 		this.state = {
 			email: "",
-			password: ""
+			password: "",
 		};
 	}
 
-	handleSubmit = async e => {
+	handleSubmit = async (e) => {
 		e.preventDefault();
 		const { email, password } = this.state;
 
@@ -29,7 +29,7 @@ class SignIn extends React.Component {
 		}
 	};
 
-	handleChange = e => {
+	handleChange = (e) => {
 		const { value, name } = e.target;
 		this.setState({ [name]: value });
 	};
