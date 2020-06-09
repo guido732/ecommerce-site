@@ -7,32 +7,38 @@ import StripePayment from "components/stripe-payment/stripe-payment.component";
 
 import { selectCartItems, selectCartTotal } from "redux/cart/cart.selectors";
 
-import "./checkout.styles.scss";
+import {
+	CheckoutPageContainer,
+	CheckoutHeaderContainer,
+	HeaderBlockContainer,
+	TotalContainer,
+	WarningContainer,
+} from "./checkout.styles";
 
 const headerBlock = ["Product", "Description", "Quantity", "Price", "Remove"];
 
 const CheckoutPage = ({ cartItems, total }) => (
-	<div className="checkout-page">
-		<div className="checkout-header">
+	<CheckoutPageContainer>
+		<CheckoutHeaderContainer>
 			{headerBlock.map((el, index) => (
-				<div className="header-block" key={index}>
+				<HeaderBlockContainer key={index}>
 					<span>{el}</span>
-				</div>
+				</HeaderBlockContainer>
 			))}
-		</div>
+		</CheckoutHeaderContainer>
 		{cartItems.map((cartItem) => (
 			<CheckoutItem cartItem={cartItem} key={cartItem.id} />
 		))}
-		<div className="total">
+		<TotalContainer>
 			<span>TOTAL: ${total}</span>
-		</div>
-		<div className="test-warning">
+		</TotalContainer>
+		<WarningContainer>
 			Please use the following CC to test payments
 			<br />
 			4242 4242 4242 4242 - Exp: 01/20 - CVV: 123
-		</div>
-		<StripePayment />
-	</div>
+		</WarningContainer>
+		<StripePayment price={total} />
+	</CheckoutPageContainer>
 );
 
 const mapStateToProps = createStructuredSelector({

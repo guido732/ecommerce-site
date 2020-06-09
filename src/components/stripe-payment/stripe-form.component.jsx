@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
-import "./stripe-form.styles.scss";
+
+import { StripeFormContainer, StripeFormSubmit, StripeFormRow } from "./stripe-form.styles";
+// import "./stripe-form.styles.scss";
 
 // Custom styling can be passed to options when creating an Element.
 const CARD_ELEMENT_OPTIONS = {
@@ -49,16 +51,16 @@ const CheckoutForm = () => {
 	};
 
 	return (
-		<form onSubmit={handleSubmit} className="stripe-form">
-			<div className="form-row">
+		<StripeFormContainer onSubmit={handleSubmit}>
+			<StripeFormRow>
 				<label htmlFor="card-element">Credit or debit card</label>
 				<CardElement id="card-element" options={CARD_ELEMENT_OPTIONS} onChange={handleChange} />
 				<div className="card-errors" role="alert">
 					{error}
 				</div>
-			</div>
-			<button type="submit">Submit Payment</button>
-		</form>
+			</StripeFormRow>
+			<StripeFormSubmit type="submit">Submit Payment</StripeFormSubmit>
+		</StripeFormContainer>
 	);
 };
 
