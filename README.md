@@ -2,7 +2,7 @@
 
 ### [Live Demo](https://fga-live.herokuapp.com/)
 
-This project is the result of the `Complete React Developer in 2019 (w Redux, Hooks, GraphQL)` React course, which covers react's fundamentals and library ecosystem, going from Class components to functional components, Redux, Reselect, Hooks, Heroku, Firebase, etc.
+This project is the result of the `Complete React Developer in 2019 (w Redux, Hooks, GraphQL)` React course, which covers from the foundations of react to more advanced topics and React's library ecosystem, going from Class components to functional components, Redux, Reselect, Hooks, Heroku, Firebase, etc.
 
 ## Recursos y tecnologías utilizadas:
 
@@ -24,7 +24,7 @@ This project is the result of the `Complete React Developer in 2019 (w Redux, Ho
 
 ### [Live Demo](https://fga-live.herokuapp.com/)
 
-Proyecto resultado del curso de React `Complete React Developer in 2019 (w Redux, Hooks, GraphQL)` que recorre los fundamentos de react y el ecosistema de forma integral, pasando por Componentes de Clase, Componentes Funcionales, Redux, Reselect, Hooks, Heroku, etc.
+Proyecto resultado del curso de React `Complete React Developer in 2019 (w Redux, Hooks, GraphQL)` que recorre desde los fundamentos de react hasta tópicos más avanzados y el ecosistema de librerías de React, pasando por Componentes de Clase, Componentes Funcionales, Redux, Reselect, Hooks, Heroku, etc.
 
 ## Recursos y tecnologías utilizadas:
 
