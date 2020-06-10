@@ -21,8 +21,3 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-
-
-# 7.2 Github complete project in styled-components
-# menu-item component
-# revisar por que se rompe cuando paso de una subcategoría (hats) al menu de shop nuevamente, está pusheando y debería sobre-escribir
