@@ -1,10 +1,15 @@
 import { createStore, applyMiddleware, compose } from "redux";
 import { createLogger } from "redux-logger";
-import rootReducer from "./root-reducer";
 import { persistStore } from "redux-persist";
-import thunk from "redux-thunk";
+// import thunk from "redux-thunk";
+import createSagaMiddleware from "redux-saga";
+import rootReducer from "./root-reducer";
 
-const middlewares = [thunk];
+import { fetchCollectionsStart } from "./shop/shop.sagas";
+
+const sagaMiddleware = createSagaMiddleware();
+
+const middlewares = [sagaMiddleware];
 
 const reduxLogger = createLogger({
 	collapsed: true,
@@ -21,6 +26,8 @@ export const store = createStore(
 		window.__REDUX_DEVTOOLS_EXTENSION__ ? window.window.__REDUX_DEVTOOLS_EXTENSION__() : (f) => f
 	)
 );
+
+sagaMiddleware.run(fetchCollectionsStart);
 
 export const persistor = persistStore(store);
 

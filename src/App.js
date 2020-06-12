@@ -11,7 +11,6 @@ import { selectCurrentUser } from "redux/user/user.selectors";
 import { auth, createUserProfileDocument } from "firebase/firebase.utils";
 // Components
 import HomePage from "pages/homepage/homepage.component";
-import ShopPage from "pages/shop/shop.component";
 import ShopPageContainer from "pages/shop/shop.container";
 import HeaderContainer from "components/header/header.container";
 import SignInUpPage from "pages/sign-in-up/sign-in-up.component";
