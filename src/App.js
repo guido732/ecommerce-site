@@ -14,7 +14,7 @@ import HomePage from "pages/homepage/homepage.component";
 import ShopPage from "pages/shop/shop.component";
 import HeaderContainer from "components/header/header.container";
 import SignInUpPage from "pages/sign-in-up/sign-in-up.component";
-import CheckoutPage from "pages/checkout/checkout.component";
+import CheckoutPageContainer from "pages/checkout/checkout.container";
 // Styles
 import "./App.css";
 
@@ -55,7 +55,7 @@ class App extends React.Component {
 						path="/signin"
 						render={() => (this.props.currentUser ? <Redirect to="/" /> : <SignInUpPage />)}
 					/>
-					<Route exact path="/checkout" component={CheckoutPage} />
+					<Route exact path="/checkout" component={CheckoutPageContainer} />
 				</Switch>
 			</div>
 		);
