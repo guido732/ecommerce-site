@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 
-import CheckoutItem from "components/checkout-item/checkout-item.component";
+import CheckoutItemContainer from "components/checkout-item/checkout-item.container";
 import StripePayment from "components/stripe-payment/stripe-payment.component";
 
 import { selectCartItems, selectCartTotal } from "redux/cart/cart.selectors";
@@ -27,7 +27,7 @@ const CheckoutPage = ({ cartItems, total }) => (
 			))}
 		</CheckoutHeaderContainer>
 		{cartItems.map((cartItem) => (
-			<CheckoutItem cartItem={cartItem} key={cartItem.id} />
+			<CheckoutItemContainer cartItem={cartItem} key={cartItem.id} />
 		))}
 		<TotalContainer>
 			<span>TOTAL: ${total}</span>

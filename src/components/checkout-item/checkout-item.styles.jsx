@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const CheckoutItemContainer = styled.div`
+export const StyledCheckoutItem = styled.div`
 	width: 100%;
 	display: flex;
 	min-height: 100px;
@@ -26,11 +26,11 @@ export const TextContainer = styled.span`
 export const QuantityContainer = styled(TextContainer)`
 	display: flex;
 	span {
-		cursor: pointer;
-		user-select: none;
+		margin: 0 10px;
 	}
 	div {
-		margin: 0 10px;
+		cursor: pointer;
+		user-select: none;
 	}
 `;
 
