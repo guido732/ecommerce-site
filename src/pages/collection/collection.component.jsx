@@ -3,9 +3,9 @@ import { connect } from "react-redux";
 import { selectCollection } from "redux/shop/shop.selectors";
 
 import {
-	CollectionPageContainer,
-	CollectionTitle,
-	CollectionItemsContainer,
+	StyledCollectionPage,
+	StyledCollectionTitle,
+	StyledCollectionItems,
 	StyledCollectionItem,
 } from "./collection.styles";
 
@@ -13,14 +13,14 @@ const CollectionPage = ({ collection }) => {
 	const { title, items } = collection;
 
 	return (
-		<CollectionPageContainer>
-			<CollectionTitle>{title}</CollectionTitle>
-			<CollectionItemsContainer>
+		<StyledCollectionPage>
+			<StyledCollectionTitle>{title}</StyledCollectionTitle>
+			<StyledCollectionItems>
 				{items.map((item) => (
 					<StyledCollectionItem key={item.id} item={item} />
 				))}
-			</CollectionItemsContainer>
-		</CollectionPageContainer>
+			</StyledCollectionItems>
+		</StyledCollectionPage>
 	);
 };
 
