@@ -9,6 +9,7 @@ This project is the result of the `Complete React Developer in 2019 (w Redux, Ho
 - React Js (v16)
 - React Router DOM
 - [Redux](https://github.com/reduxjs/redux)
+- [Redux-sagas](https://github.com/redux-saga/redux-saga)
 - [Redux-persist](https://github.com/rt2zz/redux-persist)
 - [Reselect](https://github.com/reduxjs/reselect)
 - SCSS
@@ -31,6 +32,7 @@ Proyecto resultado del curso de React `Complete React Developer in 2019 (w Redux
 - React Js (v16)
 - React Router DOM
 - [Redux](https://github.com/reduxjs/redux)
+- [Redux-sagas](https://github.com/redux-saga/redux-saga)
 - [Redux-persist](https://github.com/rt2zz/redux-persist)
 - [Reselect](https://github.com/reduxjs/reselect)
 - SCSS
