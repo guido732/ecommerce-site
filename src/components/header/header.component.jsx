@@ -1,7 +1,5 @@
 // React
 import React from "react";
-// Firebase
-import { auth } from "../../firebase/firebase.utils";
 // Components
 import CartIconContainer from "../cart-icon/cart-icon.container";
 import CartDropdownContainer from "../cart-dropdown/cart-dropdown.container";
@@ -10,7 +8,7 @@ import { HeaderContainer, LogoContainer, OptionsContainer, OptionLink } from "./
 // Assets
 import { ReactComponent as Logo } from "../../assets/crown.svg";
 
-const Header = ({ currentUser, hidden }) => (
+const Header = ({ currentUser, hidden, signOutStart }) => (
 	<HeaderContainer>
 		<LogoContainer to="/" className="logo-container">
 			<Logo className="logo" />
@@ -19,7 +17,7 @@ const Header = ({ currentUser, hidden }) => (
 			<OptionLink to="/shop">SHOP</OptionLink>
 			<OptionLink to="/contact">CONTACT</OptionLink>
 			{currentUser ? (
-				<OptionLink as="div" onClick={() => auth.signOut()}>
+				<OptionLink as="div" onClick={signOutStart}>
 					SIGN OUT
 				</OptionLink>
 			) : (
