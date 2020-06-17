@@ -28,14 +28,25 @@ if (process.env.NODE_ENV === "production") {
 }
 
 app.listen(port, (error) => {
-	if (error) throw error;
-	console.log("Server running on port " + port);
+	if (error) {
+		throw error;
+	} else {
+		console.log("Server running on port " + port);
+	}
 });
 
-app.post("/payment", (req, res) => {
-	const body = {
-		source: req.body.token.id,
-		amount: req.body.amount,
+app.post("/payment-intent", async (req, res) => {
+	const { items } = req.body;
+	const total = calculateOrderAmount(items);
+	const paymentIntent = await stripe.paymentIntents.create({
+		amount: total,
 		currency: "usd",
-	};
+	});
+
+	res.send({ clientSecret: paymentIntent.client_secret });
 });
+
+function calculateOrderAmount(items) {
+	console.log(items);
+	return 1000;
+}
