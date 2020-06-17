@@ -10,11 +10,12 @@ import {
 	HeaderBlockContainer,
 	TotalContainer,
 	WarningContainer,
+	StyledEmptyCartWarning,
 } from "./checkout.styles";
 
 const headerBlock = ["Product", "Description", "Quantity", "Price", "Remove"];
 
-const CheckoutPage = ({ cartItems, total }) => (
+const CheckoutPage = ({ cartItems, total, cartItemsCount }) => (
 	<CheckoutPageContainer>
 		<CheckoutHeaderContainer>
 			{headerBlock.map((el, index) => (
@@ -26,15 +27,21 @@ const CheckoutPage = ({ cartItems, total }) => (
 		{cartItems.map((cartItem) => (
 			<CheckoutItemContainer cartItem={cartItem} key={cartItem.id} />
 		))}
-		<TotalContainer>
-			<span>TOTAL: ${total}</span>
-		</TotalContainer>
-		<WarningContainer>
-			Please use the following CC to test payments
-			<br />
-			4242 4242 4242 4242 - Exp: 01/20 - CVV: 123
-		</WarningContainer>
-		<StripePayment price={total} />
+		{cartItemsCount ? (
+			<>
+				<TotalContainer>
+					<span>TOTAL: ${total}</span>
+				</TotalContainer>
+				<WarningContainer>
+					Please use the following CC to test payments
+					<br />
+					4242 4242 4242 4242 - Exp: 01/20 - CVV: 123
+				</WarningContainer>
+				<StripePayment price={total} />
+			</>
+		) : (
+			<StyledEmptyCartWarning>Add a product to the cart to see them reflected here</StyledEmptyCartWarning>
+		)}
 	</CheckoutPageContainer>
 );
 

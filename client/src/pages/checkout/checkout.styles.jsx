@@ -39,3 +39,11 @@ export const WarningContainer = styled.div`
 	font-size: 1.5rem;
 	color: red;
 `;
+
+export const StyledEmptyCartWarning = styled.h3`
+	text-align: center;
+	margin-top: 2rem;
+	margin-bottom: 1.5rem;
+	font-size: 2rem;
+	color: #bdbdbd;
+`;

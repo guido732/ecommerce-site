@@ -22,11 +22,12 @@ const cardStyle = {
 	},
 };
 
-const CheckoutForm = ({ cartItems }) => {
+const CheckoutForm = ({ cartItems, cartItemsCount }) => {
 	const [succeeded, setSucceeded] = useState(false);
 	const [error, setError] = useState(null);
 	const [processing, setProcessing] = useState("");
 	const [disabled, setDisabled] = useState(true);
+	const [formComplete, setFormComplete] = useState(false);
 	const [clientSecret, setClientSecret] = useState("");
 	const stripe = useStripe();
 	const elements = useElements();
@@ -49,33 +50,41 @@ const CheckoutForm = ({ cartItems }) => {
 
 	// Error Validations
 	const handleChange = (event) => {
-		setDisabled(event.empty);
+		setFormComplete(event.complete);
 		setError(event.error ? event.error.message : "");
 	};
+
+	useEffect(() => {
+		if (formComplete && cartItemsCount !== 0) {
+			setDisabled(false);
+		} else {
+			setDisabled(true);
+		}
+	}, [formComplete, setDisabled, cartItemsCount]);
 
 	// Form submission.
 	const handleSubmit = async (event) => {
 		console.log(cartItems);
 
 		event.preventDefault();
-		setProcessing(true);
-		const payload = await stripe.confirmCardPayment(clientSecret, {
-			payment_method: {
-				card: elements.getElement(CardElement),
-				billing_details: {
-					name: event.target.name.value,
-				},
-			},
-		});
+		// setProcessing(true);
+		// const payload = await stripe.confirmCardPayment(clientSecret, {
+		// 	payment_method: {
+		// 		card: elements.getElement(CardElement),
+		// 		billing_details: {
+		// 			name: event.target.name.value,
+		// 		},
+		// 	},
+		// });
 
-		if (payload.error) {
-			setError(`Payment failed ${payload.error.message}`);
-			setProcessing(false);
-		} else {
-			setError(null);
-			setProcessing(false);
-			setSucceeded(true);
-		}
+		// if (payload.error) {
+		// 	setError(`Payment failed ${payload.error.message}`);
+		// 	setProcessing(false);
+		// } else {
+		// 	setError(null);
+		// 	setProcessing(false);
+		// 	setSucceeded(true);
+		// }
 	};
 
 	return (
@@ -95,7 +104,9 @@ const CheckoutForm = ({ cartItems }) => {
 					</p>
 				)}
 			</StripeFormRow>
-			<StripeFormSubmit type="submit">Submit Payment</StripeFormSubmit>
+			<StripeFormSubmit disabled={disabled} type="submit">
+				Submit Payment
+			</StripeFormSubmit>
 		</StripeFormContainer>
 	);
 };
