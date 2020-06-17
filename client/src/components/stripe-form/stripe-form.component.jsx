@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 
 import { StripeFormContainer, StripeFormSubmit, StripeFormRow } from "./stripe-form.styles";
-// import "./stripe-form.styles.scss";
 
 // Custom styling can be passed to options when creating an Element.
 const CARD_ELEMENT_OPTIONS = {
@@ -67,6 +66,8 @@ const CheckoutForm = () => {
 export { CheckoutForm };
 
 async function stripeTokenHandler(token) {
+	console.log(token);
+
 	// const response = await fetch("/charge", {
 	// 	method: "POST",
 	// 	headers: {
