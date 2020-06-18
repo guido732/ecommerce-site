@@ -25,7 +25,7 @@ const cardStyle = {
 const CheckoutForm = ({ cartItems, cartItemsCount }) => {
 	const [succeeded, setSucceeded] = useState(false);
 	const [error, setError] = useState(null);
-	const [processing, setProcessing] = useState("");
+	const [processing, setProcessing] = useState(false);
 	const [disabled, setDisabled] = useState(true);
 	const [formComplete, setFormComplete] = useState(false);
 	const [clientSecret, setClientSecret] = useState("");
@@ -40,13 +40,13 @@ const CheckoutForm = ({ cartItems, cartItemsCount }) => {
 				headers: {
 					"Content-Type": "application/json",
 				},
-				body: JSON.stringify({ items: [{ id: "xl-tshirt" }] }),
+				body: JSON.stringify({ items: cartItems }),
 			});
 			const resData = await res.json();
-			setClientSecret(resData.client_secret);
+			setClientSecret(resData.clientSecret);
 		};
 		fetchPaymentIntent();
-	}, []);
+	}, [cartItems]);
 
 	// Error Validations
 	const handleChange = (event) => {
@@ -55,7 +55,7 @@ const CheckoutForm = ({ cartItems, cartItemsCount }) => {
 	};
 
 	useEffect(() => {
-		if (formComplete && cartItemsCount !== 0) {
+		if (formComplete && cartItemsCount !== 0 && !processing) {
 			setDisabled(false);
 		} else {
 			setDisabled(true);
@@ -64,27 +64,25 @@ const CheckoutForm = ({ cartItems, cartItemsCount }) => {
 
 	// Form submission.
 	const handleSubmit = async (event) => {
-		console.log(cartItems);
-
 		event.preventDefault();
-		// setProcessing(true);
-		// const payload = await stripe.confirmCardPayment(clientSecret, {
-		// 	payment_method: {
-		// 		card: elements.getElement(CardElement),
-		// 		billing_details: {
-		// 			name: event.target.name.value,
-		// 		},
-		// 	},
-		// });
+		setProcessing(true);
+		const payload = await stripe.confirmCardPayment(clientSecret, {
+			payment_method: {
+				card: elements.getElement(CardElement),
+				billing_details: {
+					name: event.target.name.value,
+				},
+			},
+		});
 
-		// if (payload.error) {
-		// 	setError(`Payment failed ${payload.error.message}`);
-		// 	setProcessing(false);
-		// } else {
-		// 	setError(null);
-		// 	setProcessing(false);
-		// 	setSucceeded(true);
-		// }
+		if (payload.error) {
+			setError(`Payment failed ${payload.error.message}`);
+			setProcessing(false);
+		} else {
+			setError(null);
+			setProcessing(false);
+			setSucceeded(true);
+		}
 	};
 
 	return (
