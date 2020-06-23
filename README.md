@@ -18,6 +18,8 @@ This project is the result of the `Complete React Developer in 2019 (w Redux, Ho
 - [React Stripe Js](https://github.com/stripe/react-stripe-js)
 - [Stripe Js](https://www.npmjs.com/package/@stripe/stripe-js)
 - [Styled Components](https://styled-components.com/)
+- Nodejs
+- Express (+ body-parser, compression, cors, dotenv, firebase-admin)
 
 ---
 
@@ -41,3 +43,5 @@ Proyecto resultado del curso de React `Complete React Developer in 2019 (w Redux
 - [React Stripe Js](https://github.com/stripe/react-stripe-js)
 - [Stripe Js](https://www.npmjs.com/package/@stripe/stripe-js)
 - [Styled Components](https://styled-components.com/)
+- Nodejs
+- Express (+ body-parser, compression, cors, dotenv, firebase-admin)
